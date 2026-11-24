@@ -15,7 +15,10 @@
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.ahnaf_ruet.Shomoymoto",
-      "permissions": ["SCHEDULE_EXACT_ALARM", "USE_EXACT_ALARM"]
+      "permissions": [
+        "SCHEDULE_EXACT_ALARM",
+        "USE_EXACT_ALARM"
+      ]
     },
     "web": {
       "output": "static",
@@ -42,7 +45,8 @@
       ],
       "@react-native-community/datetimepicker",
       "expo-image",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true,

@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useLanguage } from "../service/i18n";
 import { getLocalStorage } from "../service/storage";
 
@@ -17,52 +17,54 @@ export default function Header() {
     };
     GetUserDetail();
   }, []);
-  return (
-    <View
-      style={{
-        marginTop: 20,
-      }}
-    >
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <Image
-            source={require("../assets/images/android-icon-foreground.png")}
-            style={{
-              width: 60,
-              height: 60,
-              marginRight: -10,
-            }}
-          />
 
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "bold",
-              flexShrink: 1,
-            }}
-          >
-            {t("hello", { name: user?.displayName ?? "" })}{" "}
-          </Text>
-        </View>
-        <TouchableOpacity onPress={() => router.push("/add-new-medication")}>
-          <Ionicons name="medkit" size={28} color="green" />
-        </TouchableOpacity>
+  return (
+    <View style={styles.headerRow}>
+      <View style={styles.leftGroup}>
+        <Image
+          source={require("../assets/images/android-icon-foreground.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+
+        <Text style={styles.headerText} numberOfLines={1}>
+          {t("hello", { name: user?.displayName ?? "" })}
+        </Text>
       </View>
+
+      <TouchableOpacity onPress={() => router.push("/add-new-medication")}>
+        <Ionicons name="medkit" size={28} color="green" />
+      </TouchableOpacity>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    marginTop: 4,
+    marginBottom: 16,
+    paddingHorizontal: 4,
+  },
+  leftGroup: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    flex: 1,
+    marginRight: 8,
+  },
+  logo: {
+    width: 48,
+    height: 48,
+    marginRight: -8,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#0F4D0F",
+    flexShrink: 1,
+  },
+});

@@ -64,6 +64,11 @@ export const translations = {
     medicationHistory: "Medication History",
     noMedicationOnDate: "No medication on this date",
     noMedicationHistory: "No medication History",
+    exportPdfReport: "Export History PDF",
+    generatePdf: "Generate PDF Report",
+    generatingPdf: "Generating PDF...",
+    invalidDateRange: "End date must be on or after the start date.",
+    pdfError: "Could not generate the PDF report. Please try again.",
 
     myMedication: "My Medication",
     language: "Language",
@@ -88,8 +93,7 @@ export const translations = {
     responseSaved: "Response Saved !",
 
     testNotification: "Test Notification",
-    testNotificationSent:
-      "Test notification sent. Check the notification bar.",
+    testNotificationSent: "Test notification sent. Check the notification bar.",
     testNotificationPermission:
       "Notification permission is not granted. Please enable it in Settings.",
 
@@ -185,6 +189,11 @@ export const translations = {
     medicationHistory: "ঔষধের হিস্ট্রি",
     noMedicationOnDate: "এই তারিখে কোনো ঔষধ নেই",
     noMedicationHistory: "কোনো ঔষধের হিস্ট্রি নেই",
+    exportPdfReport: "হিস্ট্রি PDF ডাউনলোড",
+    generatePdf: "PDF রিপোর্ট তৈরি করুন",
+    generatingPdf: "PDF তৈরি হচ্ছে...",
+    invalidDateRange: "শেষের তারিখ অবশ্যই শুরুর তারিখের সমান বা পরে হতে হবে।",
+    pdfError: "PDF রিপোর্ট তৈরি করা যায়নি। আবার চেষ্টা করুন।",
 
     myMedication: "আমার ঔষধ",
     language: "ভাষা",

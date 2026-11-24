@@ -1,19 +1,28 @@
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../../components/Header.jsx";
 import MedicationList from "../../../components/MedicationList.jsx";
 
 export default function HomeScreen() {
   return (
-    <View
-      style={{
-        padding: 25,
-        backgroundColor: "white",
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      <Header />
-      <MedicationList />
-    </View>
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <View style={styles.mainContainer}>
+        <Header />
+        <MedicationList />
+      </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  mainContainer: {
+    flex: 1,
+    paddingTop: 12,
+    paddingHorizontal: 14,
+    backgroundColor: "white",
+  },
+});

@@ -3,13 +3,13 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import moment from "moment";
 import { useCallback, useMemo, useState } from "react";
 import {
-    ActivityIndicator,
-    FlatList,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { db } from "../config/FirebaseConfig.jsx";
 import { GetDateRangeToDisplay } from "../service/convertDateTime";
@@ -63,30 +63,23 @@ export default function MedicationList() {
   );
 
   return (
-    <View
-      style={{
-        marginTop: 25,
-      }}
-    >
+    <View style={styles.container}>
       <FlatList
         data={medList}
         keyExtractor={(item, index) => `${item.docId}-${index}`}
         contentContainerStyle={{ paddingBottom: 120 }}
+        showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <>
             <Image
               source={require("../assets/images/medication.png")}
-              style={{
-                width: "100%",
-                height: 200,
-                borderRadius: 15,
-              }}
+              style={styles.bannerImage}
             />
 
             <FlatList
               data={dateRange}
               horizontal
-              style={{ marginTop: 8 }}
+              style={{ marginTop: 18, marginBottom: 8 }}
               keyExtractor={(item, index) => index.toString()}
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => (
@@ -145,7 +138,7 @@ export default function MedicationList() {
             <ActivityIndicator
               size="large"
               color="#008000"
-              style={{ marginTop: 40 }}
+              style={{ marginTop: 30, marginBottom: 20 }}
             />
           ) : (
             <EmptyState />
@@ -157,6 +150,14 @@ export default function MedicationList() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  bannerImage: {
+    width: "100%",
+    height: 200,
+    borderRadius: 20,
+  },
   dateGroup: {
     padding: 15,
     backgroundColor: "#d3d3d3",

@@ -3,16 +3,16 @@ import { useRouter } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import {
-    Alert,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    ToastAndroid,
-    TouchableOpacity,
-    View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { auth } from "../../../config/FirebaseConfig";
@@ -44,9 +44,11 @@ export default function SignIn() {
       notify(t("enterEmailPassword"));
       return;
     }
-
+    // setBusy: Locks the Sign In button while the network request is running so the user can't spam multiple login requests.
     setBusy(true);
+
     signInWithEmailAndPassword(auth, email.trim(), password)
+    // email.trim() (stripping accidental leading/trailing spaces that mobile keyboards often add)
       .then(async (userCredential) => {
         const user = userCredential.user;
         ("signed in:", user.email);
